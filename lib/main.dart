@@ -35,12 +35,30 @@ class _contaState extends State<contaPage> {
 
   }
 
+  void _limparCamposForm(){
+
+    setState(() {
+      _valorPessoa = "Informe seus dados";
+      quantidadePessoasController.text = "";
+      valorContaController.text = "";
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("RACHA CONTA"),
         centerTitle: true,
+        actions: <Widget> [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              _limparCamposForm();
+            },
+          )
+        ],
       ),
       body: SingleChildScrollView(
           //para melhorar a usabilidade da aplicação nas diversas telas
